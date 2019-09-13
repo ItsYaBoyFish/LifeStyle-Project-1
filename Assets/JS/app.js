@@ -1,6 +1,14 @@
 console.log('Hello');
 
+// Global Variables =====================================
+var cityDestination = $('#cityDestination');
+var stateDestination = $('#stateDestination');
+
+
+
+
 // Weather API ==================================================
+
 //My custome key for the API provided by the developer account that I signed up for.
 var weatherAPI_KEY = "e692f2a04d92b2b65f00c937f4db00cb";
 //My SEARCH query.
@@ -19,6 +27,17 @@ function pullCurrentWeather(apiKey, apiURL) {
   })
 };
 
+// Event Listeners (Button Clicks) ========================================
+var submitBtn = $('#submitBtn');
+var closeBtn = $('#closeBtn');
+
+submitBtn.on('click', function(e) {
+  // Prevent Default Form Submit
+  e.preventDefault();
+
+  console.log(cityDestination.val());
+  console.log(stateDestination.val());
+})
 
 
 
