@@ -1,4 +1,4 @@
-console.log('Hello');
+console.log("[ ***** LIFESTYLE PROJECT1 :: app.js attached! *****]");
 
 // Global Variables =====================================
 var cityDestination = $('#cityDestination');
