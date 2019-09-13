@@ -27,6 +27,22 @@ function pullCurrentWeather(apiKey, apiURL) {
   })
 };
 
+// TicketMaster API ===================================================
+function pullTicketMasterData() {
+  var city = 'Nashville';
+  var apiKey = 'fb7yHnQINE0PIFf8ayDXeoSw6PDugZhe';
+  var apiURL = `https://app.ticketmaster.com/discovery/v2/events.json?city=${city}&apikey=${apiKey}`;
+
+  var options = {
+    url: apiURL,
+    method: 'GET'
+  };
+
+  $.ajax(options).then(function(response) {
+    console.log(response);
+  });
+}
+
 // Event Listeners (Button Clicks) ========================================
 var submitBtn = $('#submitBtn');
 var closeBtn = $('#closeBtn');
@@ -43,4 +59,5 @@ submitBtn.on('click', function(e) {
 
 
 // API Calls ===============================================================
-pullCurrentWeather(weatherAPI_KEY, weatherAPI_URL);
+// pullCurrentWeather(weatherAPI_KEY, weatherAPI_URL);
+pullTicketMasterData();
