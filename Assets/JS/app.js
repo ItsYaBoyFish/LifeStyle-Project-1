@@ -102,6 +102,30 @@ submitBtn.on('click', function(e) {
 
 // API Calls ===============================================================
 
-   pullFoodStuffs(zomato_FULL_URL);
+// pullFoodStuffs(zomato_FULL_URL);
 // pullCurrentWeather(weatherAPI_KEY, weatherAPI_URL);
 // pullTicketMasterData();
+
+
+// GEOLOCATION Testing ===================================================
+
+// function getLocation() {
+//   if(navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+//   } else {
+//     console.log("Geolocation is not supported by this browser.");
+//   }
+// }
+
+
+// function geoSuccess(position) {
+//   var lat = position.coords.latitude;
+//   var lng = position.coords.longitude;
+//   console.log("lat:" + lat + " lng:" + lng);
+// }
+
+
+// function geoError() {
+//   console.log("Geocoder failed.");
+// }
+// getLocation();
