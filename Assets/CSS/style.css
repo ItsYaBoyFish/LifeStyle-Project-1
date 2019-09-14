@@ -11,7 +11,7 @@
 
 }
 
-.eventRestaurant{
+.ticketmaster .chart-1 .zomato .chart-2{
     display: flex;
     max-width: 960px;
     justify-content: space-between;
@@ -76,4 +76,3 @@ p {
 .modal-content {
     text-align: left;
 }
-
