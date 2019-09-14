@@ -6,6 +6,45 @@ var stateDestination = $('#stateDestination');
 
 
 
+// ZOMATO API ===================================================
+
+//curl -X GET --header "Accept: application/json" --header "user-key: 5a9a2d6c7e0e0c88649b433e13494734" "https://developers.zomato.com/api/v2.1/search?entity_id=1138&entity_type=city&q=Nashville&count=10&radius=100"
+
+//API Key
+var zomato_API_KEY = "5a9a2d6c7e0e0c88649b433e13494734";
+//My Search query. Use the Zomato Website and City Code search section under documentation --> API
+var city_URL = "entity_id=";
+var city_code = "1138";
+var search_type = "&entity_type=";
+var search_criteria = "city";
+var results_amount = "&count=";
+var results_limit = "10";
+var remainder = "&lat=36.1627&lon=86.7816&radius=100&sort=cost&order=asc";
+
+//The API base address.
+var zomato_BASE_URL = "https://developers.zomato.com/api/v2.1/search?";
+
+var zomato_FULL_URL = zomato_BASE_URL + city_URL + city_code + search_type + search_criteria + results_amount + results_limit + remainder;
+
+//(https://developers.zomato.com/api/v2.1/search?entity_id=1138&entity_type=city&count=10&lat=36.1627&lon=86.7816&radius=100&sort=cost&order=asc)
+
+//***** SEARCH FUNCTION *****
+function pullFoodStuffs(zomato_FULL_URL) {
+var options = {
+  url: zomato_FULL_URL,
+  method: 'GET',
+  headers: { "user-key": "5a9a2d6c7e0e0c88649b433e13494734"}
+}
+
+$.ajax(options).then(function(response) {
+  console.log(response);
+  console.log("NAME: ", response.restaurants[0].restaurant.name);
+  console.log("LOCATION: ", response.restaurants[0].restaurant.location);
+  console.log("PHOTO_URL: ", response.restaurants[0].restaurant.photos_url);
+})
+};
+
+
 
 // Weather API ==================================================
 
@@ -44,3 +83,4 @@ submitBtn.on('click', function(e) {
 
 // API Calls ===============================================================
 pullCurrentWeather(weatherAPI_KEY, weatherAPI_URL);
+pullFoodStuffs(zomato_FULL_URL);
