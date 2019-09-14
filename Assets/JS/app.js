@@ -53,7 +53,7 @@ var weatherAPI_KEY = "e692f2a04d92b2b65f00c937f4db00cb";
 //My SEARCH query.
 var query = "Nashville";
 //The API base address. All queries begin with a "?" ???
-var weatherAPI_URL = `https://api.openweathermap.org/data/2.5/weather?q=${query}&APPID=${weatherAPI_KEY}`;
+var weatherAPI_URL = `https://api.openweathermap.org/data/2.5/weather?q=${query}&APPID=${weatherAPI_KEY}&units=imperial`;
 
 function pullCurrentWeather(apiKey, apiURL) {
   var options = {
@@ -63,8 +63,27 @@ function pullCurrentWeather(apiKey, apiURL) {
 
   $.ajax(options).then(function(response) {
     console.log(response);
+
+
+    console.log(response.main.temp);
   })
 };
+
+// TicketMaster API ===================================================
+function pullTicketMasterData() {
+  var city = 'Nashville';
+  var apiKey = 'fb7yHnQINE0PIFf8ayDXeoSw6PDugZhe';
+  var apiURL = `https://app.ticketmaster.com/discovery/v2/events.json?city=${city}&apikey=${apiKey}`;
+
+  var options = {
+    url: apiURL,
+    method: 'GET'
+  };
+
+  $.ajax(options).then(function(response) {
+    console.log(response);
+  });
+}
 
 // Event Listeners (Button Clicks) ========================================
 var submitBtn = $('#submitBtn');
@@ -82,5 +101,7 @@ submitBtn.on('click', function(e) {
 
 
 // API Calls ===============================================================
-pullCurrentWeather(weatherAPI_KEY, weatherAPI_URL);
-pullFoodStuffs(zomato_FULL_URL);
+
+   pullFoodStuffs(zomato_FULL_URL);
+// pullCurrentWeather(weatherAPI_KEY, weatherAPI_URL);
+// pullTicketMasterData();
