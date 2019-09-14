@@ -1,3 +1,10 @@
+
+console.log('Hello');
+$('body').on('click', '.modal', function() {
+    console.log($('form').get(0));
+    $('form')[0].reset()
+})
+
 console.log("[ ***** LIFESTYLE PROJECT1 :: app.js attached! *****]");
 
 // Global Variables =====================================
@@ -105,3 +112,4 @@ submitBtn.on('click', function(e) {
    pullFoodStuffs(zomato_FULL_URL);
 // pullCurrentWeather(weatherAPI_KEY, weatherAPI_URL);
 // pullTicketMasterData();
+
