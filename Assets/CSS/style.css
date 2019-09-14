@@ -1,0 +1,78 @@
+.hero {
+    /* border: 2pt solid green; */
+    display: flex;
+    max-width: 960px;
+    justify-content: space-between;
+    margin: 0px auto;
+}
+
+.weatherBox {
+    /* border: 2pt solid blue; */
+
+}
+
+.ticketmaster .chart-1 .zomato .chart-2{
+    display: flex;
+    max-width: 960px;
+    justify-content: space-between;
+    margin: 20px auto;
+    /* border: 2pt solid green */
+}
+
+.restaurants{
+    /* border: 2pt solid blue; */
+
+}
+.events {
+    margin-top: 50px;
+    max-width: 600px;
+    float: left;
+}
+
+.containerModal {
+    position: relative;
+    /* border: 2pt solid orange; */
+    text-align: center;  
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 16px;
+    margin-left: 16px;
+    margin-top: -18px;
+  }
+
+h5 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 14pt;
+    line-height: 80%;
+    color: blueviolet;
+    margin-inline-start: -10px;
+    margin-inline-end: -10px;
+
+}  
+
+p.card-text {
+    font-size: 11pt;
+    line-height: 12pt;
+    margin-block-start: -10px;
+    margin-block-end: 10px;
+}
+
+p.card-title
+{
+    font-size: 11pt;
+    line-height: 12pt;
+    margin-block-start: -10px;
+    margin-block-end: 10px;
+}
+
+p {
+    margin-inline-start: -10px;
+    margin-inline-end: -10px;
+    margin-block-start: -10px;
+    margin-block-end: 10px;
+}
+.modal-content {
+    text-align: left;
+}
