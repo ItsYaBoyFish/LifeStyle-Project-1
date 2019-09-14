@@ -9,11 +9,18 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="Assets/CSS/style.css">
+
 </head>
 
 <body>
+<div class = "hero">
 
-  <div class="container">
+  <div class = "weatherBox">
+<p>weather stuff goes here</p>
+  </div>
+
+
+  <div class="containerModal" > 
     <h2>Where Do You Want To Go?</h2>
     <!-- Trigger the modal with a button -->
     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Start Your
@@ -30,21 +37,130 @@
               <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <div class="modal-body">
-              <label for="city">City</label>
-              <input class="form-control" id="cityDestination" type="text">
+              <form action="">
+                  <div class="form-group">
+  
+                    <label for="city">City</label>
+              <input class="form-control"  id="cityDestination" placeholder="" type="text">
               <label for="state">State</label>
-              <input class="form-control" id="stateDestination" type="text">
-        
-          </div>
+                <select class="custom-select" id="state" name="state">
+                  <option value=""></option>
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AR">Arkansas</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="CA">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                  <option value="DC">District of Columbia</option>
+                  <option value="FL">Florida</option>
+                  <option value="GA">Georgia</option>
+                  <option value="HI">Hawaii</option>
+                  <option value="ID">Idaho</option>
+                  <option value="IL">Illinois</option>
+                  <option value="IN">Indiana</option>
+                  <option value="IA">Iowa</option>
+                  <option value="KS">Kansas</option>
+                  <option value="KY">Kentucky</option>
+                  <option value="LA">Louisiana</option>
+                  <option value="ME">Maine</option>
+                  <option value="MD">Maryland</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="MI">Michigan</option>
+                  <option value="MN">Minnesota</option>
+                  <option value="MS">Mississippi</option>
+                  <option value="MO">Missouri</option>
+                  <option value="MT">Montana</option>
+                  <option value="NE">Nebraska</option>
+                  <option value="NV">Nevada</option>
+                  <option value="NH">New Hampshire</option>
+                  <option value="NJ">New Jersey</option>
+                  <option value="NM">New Mexico</option>
+                  <option value="NY">New York</option>
+                  <option value="NC">North Carolina</option>
+                  <option value="ND">North Dakota</option>
+                  <option value="OH">Ohio</option>
+                  <option value="OK">Oklahoma</option>
+                  <option value="OR">Oregon</option>
+                  <option value="PA">Pennsylvania</option>
+                  <option value="PR">Puerto Rico</option>
+                  <option value="RI">Rhode Island</option>
+                  <option value="SC">South Carolina</option>
+                  <option value="SD">South Dakota</option>
+                  <option value="TN">Tennessee</option>
+                  <option value="TX">Texas</option>
+                  <option value="UT">Utah</option>
+                  <option value="VT">Vermont</option>
+                  <option value="VA">Virginia</option>
+                  <option value="WA">Washington</option>
+                  <option value="WV">West Virginia</option>
+                  <option value="WI">Wisconsin</option>
+                  <option value="WY">Wyoming</option>
+                </select>
+              </div>
+              </div>
 
 
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+          <div class="eventRestaurant">
+            <div class="events">
+              <div class="row">
+                <!-- <div class="col-md-4"> -->
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-sm-4">
+        
+                      <div class="card" style="width: 200px;">
+                        <img class="card-img-top" src="" width="100%" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">Event, Event Date</h5>
+                          <p class="card-text">Event description from TicketMaster</p>
+                          <a href="#" class="btn btn-primary btn-sm">Tell me more</a>
+                        </div>
+                      </div>
+                    </div>
+        
+                    <div class="col-sm-4">
+                      <div class="card" style="width: 200px;">
+                        <img class="card-img-top" src="" width="100%" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">Event, Event Date</h5>
+                          <p class="card-text">Event description from TicketMaster</p>
+                          <a href="#" class="btn btn-primary btn-sm">Tell me more</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="card" style="width: 200px;">
+                        <img class="card-img-top" src="" width="100%" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">Event, Event Date</h5>
+                          <p class="card-text">Event description from TicketMaster</p>
+                          <a href="#" class="btn btn-primary btn-sm">Tell me more</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class = "restaurants">
+                <p>weather stuff goes here</p>
+  
+            </div>
 
 
-
+          </div>
 
 
 
