@@ -48,7 +48,7 @@
     <!-- Trigger the modal with a button -->
 
 
-    <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">Start Your
+    <button type="button" class="btn btn-info btn-md searchCityBtn" data-toggle="modal" data-target="#myModal">Start Your
       Adventure</button>
 
     <!-- Modal -->
@@ -65,8 +65,8 @@
               <form action="#">
                   <div class="form-group">
   
-                    <label for="city">City</label>
-              <input class="form-control"  id="cityDestination" placeholder="" type="text">
+                <label for="city">City</label>
+              <input class="form-control"  id="cityDestination" placeholder="Enter Your Destination" type="text">
               <label for="state">State</label>
                 <select class="custom-select" id="state" name="state">
                   <option value=""></option>
@@ -136,29 +136,40 @@
       </div>
     </div>
 
+    <div class="container ticket-div">
+      <div class="title">
+        <label for="restuarants" class='eventLabel'>Events</label>
+      </div>
+      <div class="row top-holder"></div>
+    </div>
+    <div class="container rest-div">
+        <div class="title">
+          <label for="restuarants" class='eventLabel'>Restuarants</label>
+        </div>
+      <div class="row bottom-holder"></div>
+    </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <!-- Email Capture Modal -->
+  <div class="modal fade" id="emailCaptureModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="emailCaptureLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <label for="email-capture" class='form-label'>Email:</label>
+          <input type="email" id='email' class='form-control' placeholder="Enter Email Here">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" id='saveEmailBtn' class="btn btn-primary">Send Email</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
     <!--  ---------------------------------------------------------------     -->
@@ -310,6 +321,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <!-- End of Bootstrap CDN's ===================================== -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.0/dist/email.min.js"></script>
   <script src="Assets/JS/app.js"></script>
 </body>
 
