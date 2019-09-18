@@ -59,6 +59,10 @@ h3 {
     text-align: left;
 } 
 
+.carousel-slide {
+  /* width: auto !important; */
+  width: 100% !important;
+}
 /* End of Original CSS */
 
 .ticket-div {

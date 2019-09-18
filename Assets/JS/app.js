@@ -188,19 +188,19 @@ function loadARestCard() {
   holderDiv.append(cardDiv);
 };
 
-loadARestCard()
-loadARestCard()
-loadARestCard()
-loadARestCard()
-loadARestCard()
-loadARestCard()
-loadARestCard()
-loadARestCard()
-loadARestCard()
-loadARestCard()
-loadARestCard()
-loadARestCard()
-loadARestCard()
+// loadARestCard()
+// loadARestCard()
+// loadARestCard()
+// loadARestCard()
+// loadARestCard()
+// loadARestCard()
+// loadARestCard()
+// loadARestCard()
+// loadARestCard()
+// loadARestCard()
+// loadARestCard()
+// loadARestCard()
+// loadARestCard()
 
 
 function loadAEventCard(response) {
@@ -315,3 +315,74 @@ $('#saveEmailBtn').on('click', function(e) {
   });
 })
 
+// TESTING ZOMATO API WITH AJ ==================
+// =================================================
+// =================================================
+// =================================================
+
+// =================================================
+
+  $.ajax({
+    type: "GET",
+    url: "https://developers.zomato.com/api/v2.1/search?entity_id=1138&entity_type=city&count=50&lat=36.1627&lon=86.7816&radius=100&sort=cost&order=asc",
+    //contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    crossDomain:true,
+    headers: { "user-key": "5a9a2d6c7e0e0c88649b433e13494734"},
+    success: function (response) {
+      var restaurants = response.restaurants;
+      restaurants.forEach(function(element) {
+
+        // Create Card Holder
+        var cardHolder = $('<div>').attr('class', 'card');
+
+        // Row Holder on DOM
+        var divHolder = $('.bottom-holder');
+        // Div Components
+        var internalRow = $('<div>').attr('class', 'row no-gutters');
+        var cardColumnAdjustment = $('<div>').attr('class', 'col-md-4');
+        var cardBodyColumnAdjustment = $('<div>').attr('class', 'col-md-8');
+        var cardBody = $('<div>').attr('class', 'card-body');
+        // Content Components
+        var imgHolderForCard = $('<img>').attr('class', 'card-image').attr('style', 'width: 36px;').attr('style', 'height: 64px;');
+        var cardTitle = $('<h5>').attr('class', 'card-title card-element');
+        var cardLocation = $('<p>').attr('class', 'card-text card-element');
+
+
+
+        console.log(element.restaurant.name);
+        console.log(element.restaurant.location.address);
+        var thumbnails = element.restaurant.photos.filter(x => x.photo.thumb_url.length > 0);
+        console.log(thumbnails[0].photo.thumb_url);
+        var name = element.restaurant.name;
+        var address = element.restaurant.location.address;
+        var thumbnail = thumbnails[0].photo.thumb_url;
+
+        // Setting Image SRC
+        imgHolderForCard.attr('src', thumbnail);
+        // Appending Image to appropriate div. 
+        cardColumnAdjustment.append(imgHolderForCard);
+
+        // Setting Card Title and Location.
+        cardTitle.text(name);
+        cardLocation.text(address);
+
+        // Append Title and Location to body portion of card
+        cardBody.append(cardTitle);
+        cardBody.append(cardLocation);
+
+        // Appending everything to the card div itself for formatting.
+        cardBodyColumnAdjustment.append(cardBody);
+
+        internalRow.append(cardColumnAdjustment);
+        internalRow.append(cardBodyColumnAdjustment);
+
+        cardHolder.append(internalRow);
+        
+        divHolder.append(cardHolder);
+
+        
+        // $("#divResponse").append("<div>Name:" + name + "<br/>" + address + "<br/>" + "<img src=\"" + thumnail + "\"/></div>")
+      });
+    }
+  });
