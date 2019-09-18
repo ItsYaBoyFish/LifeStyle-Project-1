@@ -6,16 +6,12 @@
     z-index: 1;
 }
 
-.head {
-    z-index: 2;
-}
-
 .hero {
     display: flex;
     max-width: 1160px;
     justify-content: space-between;
     margin: 0px auto;
-}
+} 
 h1 {
     font-family: fantasy;
     font-size: 44pt;
@@ -44,99 +40,114 @@ h3 {
     color: black;
     margin-top: 60px;
     z-index: 4;
-
 }  
-h5 {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 14pt;
-    line-height: 80%;
-    color: blueviolet;
-    margin-inline-start: -10px;
-    margin-inline-end: -10px;
 
-}  
-.weatherBox {
-    border: 1pt solid blue;
-
-}
-
-.btn {
+.searchCityBtn {
     margin-bottom: 0px;
     margin-right: 70px;
     height: 30px;
 }
 
-.ticketmaster {
-    display: flex;
-    justify-content: space-between;
-    border: 2pt solid green;
-    margin-left: 40px;
-    margin-right: 30px;
-}
-
-.zomatoContainer {
-    margin-left: auto;
-    max-width: 80px;
-    background-color: white;
-}
-.allEvents {
-    display: flex;
-    margin-top: 50px;
-}
 
 .containerModal {
-    position: relative;
+    position: relative; 
     text-align: center;
     max-height: 100px;
 }
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: 16px;
-    margin-left: 16px;
-    margin-top: -18px;
-  }
 
-
-p.card-text {
-    font-size: 11pt;
-    line-height: 12pt;
-    margin-block-start: -10px;
-    margin-block-end: 10px;
-    padding-left: 10px;
-}
-
-p.card-title
-{
-    font-size: 11pt;
-    line-height: 12pt;
-    margin-block-start: -10px;
-    margin-block-end: 10px;
-}
-
-p {
-    margin-inline-start: -10px;
-    margin-inline-end: -10px;
-    margin-block-start: -10px;
-    margin-block-end: 10px;
-}
 .modal-content {
     text-align: left;
-}
+} 
 
-.allEvents {
-    max-width: 800px;
+/* End of Original CSS */
 
-}
-
-.card {
-    height: 100px;
-    padding-top: 25px;
-}
-
-.eventsContainer {
-    -webkit-column-count: 2; /* Chrome, Safari, Opera */
-    -moz-column-count: 2; /* Firefox */
-    column-count: 2;
+.ticket-div {
+    border: solid 1px blue;
+    float: left;
+    background-color: rgba(230, 172, 184, 0.3);
+    width: 65%;
+    margin-top: 3em;
+    margin-left: 3em;
+    height: 500px;
+    border-radius: 10px;
+    overflow: auto;
+  }
   
-}
+  .rest-div {
+    float: left;
+    border: solid 1px lightgrey;
+    background-color: rgba(230, 172, 184, 0.3);
+    margin-top: 3em;
+    height: 500px;
+    width: 25%;
+    margin-left: 1em;
+    border-radius: 10px;
+    overflow: auto;
+    margin-bottom: 3em;
+  }
+  
+  .card {
+    margin-top: .5em;
+    margin-bottom: .5em;
+    height: 100px;
+  }
+  
+  .rest-card {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .card-element {
+    line-height: 1;
+    font-size: 10px;
+    margin-bottom: 0.3em;
+  }
+  
+  .card-title {
+    line-height: 1.3;
+    font-size: 11px;
+    margin-bottom: 1em;
+  }
+  
+  .label {
+    display: block;
+    margin: 0;
+    margin-top: 2em;
+    text-align: center;
+  }
+  
+  .email-button {
+    cursor: pointer !important;
+  }
+  
+  .title {
+    width: 50px;
+    height: 50px;
+    clear: left;
+    text-align: center;
+    z-index: 15;
+  }
+  
+  .eventLabel {
+    text-align: center;
+    font-size: 30px;
+    z-index: 15;
+  }
+  
+  @media screen and (max-width: 400px){
+    .ticket-div {
+      margin-left: 1.2em;
+      width: 90% !important;
+    }
+  
+    .card {
+      height: 150px;
+    }
+  
+    .rest-div {
+      margin-left: 1.2em;
+      clear: left;
+      display: block;
+      width: 90%!important;
+    }
+  }
