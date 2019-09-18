@@ -77,6 +77,7 @@ function pullCurrentWeather(apiKey, apiURL) {
 };
 
 // TicketMaster API ===================================================
+
 function pullTicketMasterData() {
   var city = 'Nashville';
   var apiKey = 'fb7yHnQINE0PIFf8ayDXeoSw6PDugZhe';
@@ -88,11 +89,22 @@ function pullTicketMasterData() {
   };
 
   $.ajax(options).then(function(response) {
+    // console.log(response);
+    var data = response._embedded;
+    var cardImgSrc = data.events[0].images[0].url;
+    var cardTitle = data.events[0].name;
+
+  
+
+
     console.log(response);
+    console.log(cardTitle);
+    
   });
 }
 
 // Event Listeners (Button Clicks) ========================================
+
 var submitBtn = $('#submitBtn');
 var closeBtn = $('#closeBtn');
 
@@ -109,7 +121,14 @@ submitBtn.on('click', function(e) {
 
 // API Calls ===============================================================
 
-   pullFoodStuffs(zomato_FULL_URL);
+//  pullFoodStuffs(zomato_FULL_URL);
 // pullCurrentWeather(weatherAPI_KEY, weatherAPI_URL);
-// pullTicketMasterData();
+pullTicketMasterData();
 
+
+
+// DOM Manipulation =======================================================
+$('#card-img').attr('src', 'https://via.placeholder.com/50');
+$('#card-title').text('Testing DOM Manipulation');
+$('#card-text').text('Hello There! Testing to make sure cards can be manipulated through the dom.');
+$('#card-submit').attr('href', 'https://google.com')
