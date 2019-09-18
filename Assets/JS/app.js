@@ -123,12 +123,21 @@ submitBtn.on('click', function(e) {
 
 //  pullFoodStuffs(zomato_FULL_URL);
 // pullCurrentWeather(weatherAPI_KEY, weatherAPI_URL);
-pullTicketMasterData();
+// pullTicketMasterData();
 
 
 
 // DOM Manipulation =======================================================
-$('#card-img').attr('src', 'https://via.placeholder.com/50');
-$('#card-title').text('Testing DOM Manipulation');
-$('#card-text').text('Hello There! Testing to make sure cards can be manipulated through the dom.');
-$('#card-submit').attr('href', 'https://google.com')
+// $('#card-img').attr('src', 'https://via.placeholder.com/50');
+// $('#card-title').text('Testing DOM Manipulation');
+// $('#card-text').text('Hello There! Testing to make sure cards can be manipulated through the dom.');
+// $('#card-submit').attr('href', 'https://google.com')
+
+
+// END OF ORIGINAL JS FILE ==============================================
+// ====================================================================================
+// ====================================================================================
+// ====================================================================================
+// ====================================================================================
+
+
