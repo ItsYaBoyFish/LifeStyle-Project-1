@@ -1,47 +1,51 @@
+#lifestyleCarousel {
+    position: absolute;
+}
+
+.headline {
+    z-index: 1;
+}
+
+.head {
+    z-index: 2;
+}
+
 .hero {
-    /* border: 2pt solid green; */
     display: flex;
-    max-width: 960px;
+    max-width: 1160px;
     justify-content: space-between;
     margin: 0px auto;
 }
+h1 {
+    font-family: fantasy;
+    font-size: 44pt;
+    line-height: 80%;
+    color: brown;
+    margin-inline-start: -10px;
+    margin-inline-end: -10px;
+    padding-top: 50px;
+    padding-left: 80px;
+}  
 
-.weatherBox {
-    /* border: 2pt solid blue; */
+h2 {
+    font-family: fantasy;
+    font-size: 24pt;
+    line-height: 80%;
+    color: brown;
+    margin-inline-start: -10px;
+    margin-inline-end: -10px;
+    padding-top: 30px;
+    padding-right: 80px;
+}  
+h3 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16pt;
+    line-height: 80%;
+    color: black;
+    margin-top: 60px;
+    z-index: 4;
 
-}
-
-.ticketmaster .chart-1 .zomato .chart-2{
-    display: flex;
-    max-width: 960px;
-    justify-content: space-between;
-    margin: 20px auto;
-    /* border: 2pt solid green */
-}
-
-.restaurants{
-    /* border: 2pt solid blue; */
-
-}
-.events {
-    margin-top: 50px;
-    max-width: 600px;
-    float: left;
-}
-
-.containerModal {
-    position: relative;
-    /* border: 2pt solid orange; */
-    text-align: center;  
-}
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: 16px;
-    margin-left: 16px;
-    margin-top: -18px;
-  }
-
+}  
 h5 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 14pt;
@@ -51,12 +55,55 @@ h5 {
     margin-inline-end: -10px;
 
 }  
+.weatherBox {
+    border: 1pt solid blue;
+
+}
+
+.btn {
+    margin-bottom: 0px;
+    margin-right: 70px;
+    height: 30px;
+}
+
+.ticketmaster {
+    display: flex;
+    justify-content: space-between;
+    border: 2pt solid green;
+    margin-left: 40px;
+    margin-right: 30px;
+}
+
+.zomatoContainer {
+    margin-left: auto;
+    max-width: 80px;
+    background-color: white;
+}
+.allEvents {
+    display: flex;
+    margin-top: 50px;
+}
+
+.containerModal {
+    position: relative;
+    text-align: center;
+    max-height: 100px;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 16px;
+    margin-left: 16px;
+    margin-top: -18px;
+  }
+
 
 p.card-text {
     font-size: 11pt;
     line-height: 12pt;
     margin-block-start: -10px;
     margin-block-end: 10px;
+    padding-left: 10px;
 }
 
 p.card-title
@@ -75,4 +122,21 @@ p {
 }
 .modal-content {
     text-align: left;
+}
+
+.allEvents {
+    max-width: 800px;
+
+}
+
+.card {
+    height: 100px;
+    padding-top: 25px;
+}
+
+.eventsContainer {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+  
 }
