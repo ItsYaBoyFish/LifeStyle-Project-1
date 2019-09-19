@@ -354,7 +354,9 @@ $('#saveEmailBtn').on('click', function(e) {
       restaurants.forEach(function(element) {
 
         // Create Card Holder
-        var cardHolder = $('<div>').attr('class', 'card col-md-12');
+        var cardHolder = $('<div>').attr('class', 'col-md-12');
+
+        var actualCardItself = $('<div>').attr('class', 'card');
 
         // Row Holder on DOM
         var divHolder = $('.bottom-holder');
@@ -364,7 +366,7 @@ $('#saveEmailBtn').on('click', function(e) {
         var cardBodyColumnAdjustment = $('<div>').attr('class', 'col-md-8');
         var cardBody = $('<div>').attr('class', 'card-body');
         // Content Components
-        var imgHolderForCard = $('<img>').attr('class', 'card-image').attr('style', 'width: 36px;').attr('style', 'height: 64px;');
+        var imgHolderForCard = $('<img>').attr('class', 'card-image').attr('style', 'width: 45px;').attr('style', 'height: 80px;');
         var cardTitle = $('<h5>').attr('class', 'card-title card-element');
         var cardLocation = $('<p>').attr('class', 'card-text card-element');
 
@@ -397,7 +399,9 @@ $('#saveEmailBtn').on('click', function(e) {
         internalRow.append(cardColumnAdjustment);
         internalRow.append(cardBodyColumnAdjustment);
 
-        cardHolder.append(internalRow);
+        actualCardItself.append(internalRow);
+
+        cardHolder.append(actualCardItself);
         
         divHolder.append(cardHolder);
       });
