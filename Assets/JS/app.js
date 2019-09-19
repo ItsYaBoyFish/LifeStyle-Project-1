@@ -94,7 +94,7 @@ function pullTicketMasterData() {
     var cardImgSrc = data.events[0].images[0].url;
     var cardTitle = data.events[0].name;
 
-  
+    
 
 
     console.log(response);
@@ -110,11 +110,30 @@ var closeBtn = $('#closeBtn');
 
 submitBtn.on('click', function(e) {
   // Prevent Default Form Submit
-  e.preventDefault();
+  // e.preventDefault();
 
-  console.log(cityDestination.val());
-  console.log(stateDestination.val());
-})
+  var city = cityDestination.val();
+  // TicketMaster API 
+  var apiKey = 'fb7yHnQINE0PIFf8ayDXeoSw6PDugZhe';
+  var apiURL = `https://app.ticketmaster.com/discovery/v2/events.json?city=${city}&apikey=${apiKey}`;
+
+  var ticketMasterOptions = {
+    url: apiURL,
+    method: 'GET'
+  };
+
+  console.log(city);
+  console.log(apiURL);
+  $.ajax(ticketMasterOptions).then(function(response) {
+    var holderDiv = $('.top-holder');
+    holderDiv.empty();
+    console.log(response);
+    loadAEventCard(response);
+  });
+  
+  // Zomato API Call
+  zomatoAPICityIDReturn(city);
+});
 
 
 
@@ -204,7 +223,7 @@ function loadARestCard() {
 
 
 function loadAEventCard(response) {
-
+  console.log(response);
   var eventList = response._embedded.events;
   var data = response._embedded;
 
@@ -325,6 +344,7 @@ $('#saveEmailBtn').on('click', function(e) {
   $.ajax({
     type: "GET",
     url: "https://developers.zomato.com/api/v2.1/search?entity_id=1138&entity_type=city&count=50&lat=36.1627&lon=86.7816&radius=100&sort=cost&order=asc",
+    // url: "https://developers.zomato.com/api/v2.1/cities?q=Atlanta",
     //contentType: "application/json; charset=utf-8",
     dataType: "json",
     crossDomain:true,
@@ -334,7 +354,7 @@ $('#saveEmailBtn').on('click', function(e) {
       restaurants.forEach(function(element) {
 
         // Create Card Holder
-        var cardHolder = $('<div>').attr('class', 'card');
+        var cardHolder = $('<div>').attr('class', 'card col-md-12');
 
         // Row Holder on DOM
         var divHolder = $('.bottom-holder');
@@ -350,10 +370,10 @@ $('#saveEmailBtn').on('click', function(e) {
 
 
 
-        console.log(element.restaurant.name);
-        console.log(element.restaurant.location.address);
+        // console.log(element.restaurant.name);
+        // console.log(element.restaurant.location.address);
         var thumbnails = element.restaurant.photos.filter(x => x.photo.thumb_url.length > 0);
-        console.log(thumbnails[0].photo.thumb_url);
+        // console.log(thumbnails[0].photo.thumb_url);
         var name = element.restaurant.name;
         var address = element.restaurant.location.address;
         var thumbnail = thumbnails[0].photo.thumb_url;
@@ -380,9 +400,101 @@ $('#saveEmailBtn').on('click', function(e) {
         cardHolder.append(internalRow);
         
         divHolder.append(cardHolder);
-
-        
-        // $("#divResponse").append("<div>Name:" + name + "<br/>" + address + "<br/>" + "<img src=\"" + thumnail + "\"/></div>")
       });
     }
   });
+
+
+  function zomatoAPICityIDReturn(searchedCity) {
+    $.ajax({
+    type: "GET",
+    url: `https://developers.zomato.com/api/v2.1/cities?q=${searchedCity}`,
+    //contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    crossDomain:true,
+    headers: { "user-key": "5a9a2d6c7e0e0c88649b433e13494734"},
+    success: function (response) {
+      console.log(response.location_suggestions[0].id);
+      var cityID = response.location_suggestions[0].id;
+      
+      zomatoResultsByID(cityID);
+    }
+  })
+}
+
+
+  function zomatoResultsByID(city_ID) {
+    $.ajax({
+      type: "GET",
+      url: `https://developers.zomato.com/api/v2.1/search?entity_id=${city_ID}&entity_type=city&count=50&lat=36.1627&lon=86.7816&radius=100&sort=cost&order=asc`,
+      //contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      crossDomain:true,
+      headers: { "user-key": "5a9a2d6c7e0e0c88649b433e13494734"},
+      success: function (response) {
+        console.log(response);
+        var restaurants = response.restaurants;
+        var resetTheDiv = $('.bottom-holder')
+        resetTheDiv.empty();
+      restaurants.forEach(function(element) {
+
+        // Create Card Holder
+        var cardHolder = $('<div>').attr('class', 'card col-md-12');
+
+        // Row Holder on DOM
+        var divHolder = $('.bottom-holder');
+        // Div Components
+        var internalRow = $('<div>').attr('class', 'row no-gutters');
+        var cardColumnAdjustment = $('<div>').attr('class', 'col-md-4');
+        var cardBodyColumnAdjustment = $('<div>').attr('class', 'col-md-8');
+        var cardBody = $('<div>').attr('class', 'card-body');
+        // Content Components
+        var imgHolderForCard = $('<img>').attr('class', 'card-image').attr('style', 'width: 36px;').attr('style', 'height: 64px;');
+        var cardTitle = $('<h5>').attr('class', 'card-title card-element');
+        var cardLocation = $('<p>').attr('class', 'card-text card-element');
+
+
+
+        // console.log(element.restaurant.name);
+        // console.log(element.restaurant.location.address);
+        var thumbnails = element.restaurant.photos.filter(x => x.photo.thumb_url.length > 0);
+        // console.log(thumbnails[0].photo.thumb_url);
+        var name = element.restaurant.name;
+        var address = element.restaurant.location.address;
+        var thumbnail = thumbnails[0].photo.thumb_url;
+
+        // Setting Image SRC
+        imgHolderForCard.attr('src', thumbnail);
+        // Appending Image to appropriate div. 
+        cardColumnAdjustment.append(imgHolderForCard);
+
+        // Setting Card Title and Location.
+        cardTitle.text(name);
+        cardLocation.text(address);
+
+        // Append Title and Location to body portion of card
+        cardBody.append(cardTitle);
+        cardBody.append(cardLocation);
+
+        // Appending everything to the card div itself for formatting.
+        cardBodyColumnAdjustment.append(cardBody);
+
+        internalRow.append(cardColumnAdjustment);
+        internalRow.append(cardBodyColumnAdjustment);
+
+        cardHolder.append(internalRow);
+        
+        divHolder.append(cardHolder);
+        
+      })
+    }
+  })
+};
+
+
+
+
+// Las Vegas
+// Nashville
+// Memphis
+// Atlanta
